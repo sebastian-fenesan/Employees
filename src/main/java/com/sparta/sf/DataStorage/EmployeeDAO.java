@@ -14,7 +14,9 @@ public class EmployeeDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/employees";
 
     public static void populateDatabase() {
-        try (Connection connection = DriverManager.getConnection(URL, "root", "root")) {
+        LoginDetails loginDetails = new LoginDetails();
+        loginDetails.getLoginDetails();
+        try (Connection connection = DriverManager.getConnection(URL, loginDetails.getUsername(), loginDetails.getPassword())) {
             EmployeeManager employeeManager = new EmployeeManager();
             Map<String, Employee> employeeMap = employeeManager.createEmployeeMap();
             for (Object employee : employeeMap.values()) {
