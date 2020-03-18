@@ -1,6 +1,4 @@
-package com.sparta.sf.controller;
-
-import com.sparta.sf.model.Employee;
+package com.sparta.sf.model;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
