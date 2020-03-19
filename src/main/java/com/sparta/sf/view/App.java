@@ -7,6 +7,7 @@ public class App
 {
     public static void main( String[] args ) {
 
-        EmployeeDAO.populateDatabase();
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        employeeDAO.populateDatabase();
     }
 }
