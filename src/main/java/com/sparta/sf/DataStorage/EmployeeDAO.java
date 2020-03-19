@@ -29,9 +29,9 @@ public class EmployeeDAO {
     }
 
     public void populateDatabase() {
-        EmployeeManager employeeManager = new EmployeeManager();
-        try {
-            Connection connection = employeeManager.connectToDatabase();
+        String[] details = LoginDetails.getLoginDetails();
+        try (Connection connection = DriverManager.getConnection(URL, details[0], details[1])) {
+            EmployeeManager employeeManager = new EmployeeManager();
             Map<String, Employee> employeeMap = employeeManager.createEmployeeMap();
             for (Object employee : employeeMap.values()) {
                 createEmployeeRecord((Employee) employee, connection);
